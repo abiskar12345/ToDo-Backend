@@ -1,0 +1,27 @@
+{
+  "name": "todo-backend",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abiskar12345/ToDo-Backend.git"
+  },
+  "author": "Abiskar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abiskar12345/ToDo-Backend/issues"
+  },
+  "homepage": "https://github.com/abiskar12345/ToDo-Backend#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.2",
+    "http": "^0.0.1-security",
+    "mongoose": "^6.5.2",
+    "nodemon": "^2.0.19"
+  }
+}
