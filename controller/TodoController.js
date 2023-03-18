@@ -1,9 +1,9 @@
-const TaskServices = require("../services/TaskServices");
+const TodoServices = require("../services/TodoServices");
 
-class TaskController {
-  getTasks = async (req, res) => {
+class TodoController {
+  getTodoList = async (req, res) => {
     try {
-      const task = await TaskServices.get();
+      const task = await TodoServices.get();
       res.status(200).send(task);
     } catch (error) {
       res.status(400).send(error);
@@ -12,17 +12,17 @@ class TaskController {
 
   add = async (req, res) => {
     try {
-      const task = await TaskServices.create(req.body);
+      const task = await TodoServices.create(req.body);
       res.status(200).send(task);
     } catch (error) {
       res.status(400).send(error);
     }
   };
 
-  updateTasks = async (req, res) => {
+  update = async (req, res) => {
     try {
       const data = req.body;
-      const task = await TaskServices.update(data);
+      const task = await TodoServices.update(data);
       res.status(200).send(task);
     } catch (error) {
       res.status(400).send(error);
@@ -32,7 +32,7 @@ class TaskController {
   remove = async (req, res) => {
     try {
       const { id } = req.params;
-      const task = await TaskServices.remove(id);
+      const task = await TodoServices.remove(id);
       res.status(200).send(task);
     } catch (error) {
       res.status(400).send(error);
@@ -40,4 +40,4 @@ class TaskController {
   };
 }
 
-module.exports = new TaskController();
+module.exports = new TodoController();

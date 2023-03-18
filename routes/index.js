@@ -5,12 +5,6 @@ const apiRoutes = function (app) {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  app.use(
-    bodyParser.urlencoded({
-      extended: true,
-    })
-  );
-
   app.use("/todo", require("./todoRoutes"));
 
   app.use((req, res, next) => {

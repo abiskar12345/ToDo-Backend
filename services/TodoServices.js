@@ -1,8 +1,10 @@
-const todo = require("../model/todo");
-class TaskService {
+const todo = require("../models/todo");
+class TodoService {
   constructor() {}
 
-  async get() {}
+  async get() {
+    return "todo";
+  }
 
   create = async (data) => {
     return todo.create(data);
@@ -25,4 +27,4 @@ class TaskService {
   };
 }
 
-module.exports = new TaskService();
+module.exports = new TodoService();

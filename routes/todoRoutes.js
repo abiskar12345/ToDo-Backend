@@ -1,12 +1,17 @@
 const express = require("express");
 const router = express.Router();
-const taskController = require("../controller/TaskController");
+const TodoController = require("../controller/TodoController");
+const { updateValidate, addValidate } = require("../validators/todoValidator");
+const validate = require("../validators/validate");
 
-router.route("/").get(taskController.getAllTasks).post(taskController.addTask);
+router
+  .route("/")
+  .get(TodoController.getTodoList)
+  .post(addValidate, validate, TodoController.add);
 
 router
   .route("/:taskId")
-  .patch(taskController.updateTask)
-  .delete(taskController.deleteTask);
+  .patch(updateValidate, validate, TodoController.update)
+  .delete(TodoController.remove);
 
 module.exports = router;
