@@ -1,20 +1,23 @@
+const { ObjectId } = require("mongoose");
 const todo = require("../models/todo");
+
 class TodoService {
   constructor() {}
 
   async get() {
-    return "todo";
+    return todo.find();
   }
 
   create = async (data) => {
     return todo.create(data);
   };
 
-  update = async ({ id }) => {
+  update = async (id, data) => {
     return todo.findOneAndUpdate(
       {
         _id: id,
       },
+      data,
 
       { new: true }
     );
@@ -24,6 +27,10 @@ class TodoService {
     return todo.deleteOne({
       _id: id,
     });
+  };
+
+  getById = async (id) => {
+    return todo.findById(id);
   };
 }
 

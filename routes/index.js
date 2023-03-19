@@ -5,7 +5,7 @@ const apiRoutes = function (app) {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
 
-  app.use("/todo", require("./todoRoutes"));
+  app.use("/api/v1/todo", require("./todoRoutes"));
 
   app.use((req, res, next) => {
     const error = new Error("Not found");

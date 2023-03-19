@@ -35,13 +35,13 @@ const addValidate = checkSchema({
       },
     },
   },
-  shortDescriptionate: {
+  shortDescription: {
     in: ["body"],
-    errorMessage: "shortDescription  is required",
+    errorMessage: "Short Description  is required",
     custom: {
       options: async (value) => {
         if (value === undefined || value === "") {
-          throw new Error("shortDescription feild is required.");
+          throw new Error("Short Description feild is required.");
         }
         return true;
       },
@@ -49,7 +49,7 @@ const addValidate = checkSchema({
   },
   dateTime: {
     in: ["body"],
-    errorMessage: "Date  is required",
+    errorMessage: "DateTime  is required",
     custom: {
       options: async (value) => {
         if (value === undefined || value === "") {

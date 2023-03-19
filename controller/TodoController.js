@@ -4,7 +4,7 @@ class TodoController {
   getTodoList = async (req, res) => {
     try {
       const task = await TodoServices.get();
-      res.status(200).send(task);
+      res.status(200).json({ status: "success", data: task });
     } catch (error) {
       res.status(400).send(error);
     }
@@ -13,7 +13,7 @@ class TodoController {
   add = async (req, res) => {
     try {
       const task = await TodoServices.create(req.body);
-      res.status(200).send(task);
+      res.status(200).json({ status: "success", data: task });
     } catch (error) {
       res.status(400).send(error);
     }
@@ -22,8 +22,9 @@ class TodoController {
   update = async (req, res) => {
     try {
       const data = req.body;
-      const task = await TodoServices.update(data);
-      res.status(200).send(task);
+      const { id } = req.params;
+      const task = TodoServices.update(id, data);
+      res.status(200).json({ status: "success", data: task });
     } catch (error) {
       res.status(400).send(error);
     }
@@ -33,7 +34,16 @@ class TodoController {
     try {
       const { id } = req.params;
       const task = await TodoServices.remove(id);
-      res.status(200).send(task);
+      res.status(200).json({ status: "success", data: task });
+    } catch (error) {
+      res.status(400).send(error);
+    }
+  };
+  getById = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const task = await TodoServices.getById(id);
+      res.status(200).json({ status: "success", data: task });
     } catch (error) {
       res.status(400).send(error);
     }

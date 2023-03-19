@@ -14,6 +14,11 @@ const todoSchema = new Schema({
     type: Date,
     required: true,
   },
+  status: {
+    type: String,
+    enum: ["pending", "done"],
+    default: "pending",
+  },
 });
 
 module.exports = mongoose.model("Todo", todoSchema);

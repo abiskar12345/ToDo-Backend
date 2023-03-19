@@ -2,6 +2,8 @@ var express = require("express");
 const apiRoutes = require("./routes");
 require("dotenv").config();
 var app = express();
+require("./dbConfig/dbConnect");
+
 
 app.all("*", function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");

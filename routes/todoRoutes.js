@@ -10,8 +10,9 @@ router
   .post(addValidate, validate, TodoController.add);
 
 router
-  .route("/:taskId")
+  .route("/:id")
   .patch(updateValidate, validate, TodoController.update)
-  .delete(TodoController.remove);
+  .delete(TodoController.remove)
+  .get(TodoController.getById);
 
 module.exports = router;
