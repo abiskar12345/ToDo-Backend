@@ -6,7 +6,7 @@ class TodoController {
       const task = await TodoServices.get();
       res.status(200).json({ status: "success", data: task });
     } catch (error) {
-      res.status(400).send(error);
+      res.status(400).json({ error });
     }
   };
 
@@ -15,7 +15,7 @@ class TodoController {
       const task = await TodoServices.create(req.body);
       res.status(200).json({ status: "success", data: task });
     } catch (error) {
-      res.status(400).send(error);
+      res.status(400).json({ error });
     }
   };
 
@@ -23,10 +23,10 @@ class TodoController {
     try {
       const data = req.body;
       const { id } = req.params;
-      const task = TodoServices.update(id, data);
+      const task = await TodoServices.update(id, data);
       res.status(200).json({ status: "success", data: task });
     } catch (error) {
-      res.status(400).send(error);
+      res.status(400).json({ error });
     }
   };
 
@@ -36,7 +36,7 @@ class TodoController {
       const task = await TodoServices.remove(id);
       res.status(200).json({ status: "success", data: task });
     } catch (error) {
-      res.status(400).send(error);
+      res.status(400).json({ error });
     }
   };
   getById = async (req, res) => {
@@ -45,7 +45,7 @@ class TodoController {
       const task = await TodoServices.getById(id);
       res.status(200).json({ status: "success", data: task });
     } catch (error) {
-      res.status(400).send(error);
+      res.status(400).json({ error });
     }
   };
 }
